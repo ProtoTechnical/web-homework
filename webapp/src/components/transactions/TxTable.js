@@ -1,18 +1,19 @@
 import React from 'react'
 import { arrayOf, string, bool, number, shape } from 'prop-types'
-import { css } from '@emotion/core'
+// import { css } from '@emotion/core'
+import Table from 'react-bootstrap/Table'
 
-const styles = css`
+/* const styles = css`
  .header {
    font-weight: bold;
  }
-`
+` */
 
 const makeDataTestId = (transactionId, fieldName) => `transaction-${transactionId}-${fieldName}`
 
 export function TxTable ({ data }) {
   return (
-    <table css={styles}>
+    <Table striped bordered hover>
       <tbody>
         <tr className='header'>
           <td >ID</td>
@@ -22,6 +23,7 @@ export function TxTable ({ data }) {
           <td >Debit</td>
           <td >Credit</td>
           <td >Amount</td>
+          <td >Delete</td>
         </tr>
         {
           data.map(tx => {
@@ -35,12 +37,13 @@ export function TxTable ({ data }) {
                 <td data-testid={makeDataTestId(id, 'debit')}>{debit}</td>
                 <td data-testid={makeDataTestId(id, 'credit')}>{credit}</td>
                 <td data-testid={makeDataTestId(id, 'amount')}>{amount}</td>
+                <td data-testid={makeDataTestId(id, 'delete')}><Button variant='danger'>X</Button></td>
               </tr>
             )
           })
         }
       </tbody>
-    </table>
+    </Table>
 
   )
 }
