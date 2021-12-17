@@ -25,9 +25,9 @@ const mutation = new GraphQLObjectType({
     deleteTransaction: {
       type: TransactionType,
       args: {
-        id: {type: GraphQLString}
+        id: { type: GraphQLString }
       },
-      resolve(parentValue, { id }) {
+      resolve (parentValue, { id }) {
         return TransactionModel.findByIdAndDelete(id)
       }
     },

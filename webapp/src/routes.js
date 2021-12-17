@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { css } from '@emotion/core'
 import { Home } from './home'
+import { PieChart } from './components/Chart'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
@@ -24,7 +25,7 @@ function AppRouter () {
       </Navbar>
       <div className='main-content' css={contentStyle}>
         <Route component={Home} exact path='/' />
-        <Route component={() => (<div>Content for /Chart route</div>)} exact path='/Chart' />
+        <Route component={PieChart} exact path='/Chart' />
         <Route component={() => (<div>Content for /Settings route</div>)} exact path='/Settings' />
         <Route component={() => (<div>Content for /Add route</div>)} exact path='/add' />
       </div>
@@ -33,26 +34,6 @@ function AppRouter () {
 }
 
 export default AppRouter
-
-/* const layoutStyle = css`
-    display: grid;
-    grid-row-gap: 24px;
-    padding: 8px;
-`
-
-const navStyle = css`
-  grid-row: 1;
-
-  & > ul {
-      display: flex;
-      flex-direction: row;
-      list-style-type: none;
-  }
-
-  & > ul > li:not(:first-of-type) {
-    margin-left: 16px;
-  }
-` */
 
 const contentStyle = css`
   grid-row: 2;

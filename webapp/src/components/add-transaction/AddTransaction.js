@@ -36,19 +36,17 @@ export function AddTransaction () {
     }
     addTransaction({
       variables: {
-        user_id: this.addUserID.value,
-        amount: parseFloat(this.addAmount.value),
-        category: this.addCategory.value,
-        credit: this.Credit.checked,
-        debit: this.Debit.checked,
-        description: this.addDescription.value,
-        merchant_id: this.addMerchantID.value
+        user_id: document.getElementById('addUserID').value,
+        amount: parseFloat(document.getElementById('addAmount').value),
+        category: document.getElementById('addCategory').value,
+        credit: document.getElementById('Credit').checked,
+        debit: document.getElementById('Debit').checked,
+        description: document.getElementById('addDescription').value,
+        merchant_id: document.getElementById('addMerchantID').value
       },
       refetchQueries: ['GetTransactions']
     })
     closeModal()
-    // console.log('data = ', addMerchantID.value)
-    // addTransaction()
   }
 
   return (

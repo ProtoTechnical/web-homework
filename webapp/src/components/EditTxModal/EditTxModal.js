@@ -27,13 +27,13 @@ export function EditTxModal ({ show, transaction, onClose }) {
     EditTransaction({
       variables: {
         id: transaction.id,
-        user_id: this.editUserID.value,
-        amount: parseFloat(this.editAmount.value),
-        category: this.editCategory.value,
-        credit: this.Credit.checked,
-        debit: this.Debit.checked,
-        description: this.editDescription.value,
-        merchant_id: this.editMerchantID.value
+        user_id: document.getElementById('editUserID').value,
+        amount: parseFloat(document.getElementById('editAmount').value),
+        category: document.getElementById('editCategory').value,
+        credit: document.getElementById('Credit').checked,
+        debit: document.getElementById('Debit').checked,
+        description: document.getElementById('editDescription').value,
+        merchant_id: document.getElementById('editMerchantID').value
       },
       refetchQueries: ['GetTransactions']
     })
