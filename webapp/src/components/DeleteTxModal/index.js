@@ -1,0 +1,1 @@
+export { DeleteTxModal } from './DeleteTxModal'

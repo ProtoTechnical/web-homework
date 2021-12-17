@@ -1,0 +1,15 @@
+mutation EditTransaction(
+  $id: String!,
+  $user_id: String!,
+  $amount: Float!,
+  $category: String!,
+  $credit: Boolean!,
+  $debit: Boolean!,
+  $description: String!,
+  $merchant_id: String!
+) {
+  editTransaction(id: $id, user_id: $user_id, amount: $amount, category: $category,
+      credit: $credit, debit: $debit, description: $description, merchant_id: $merchant_id) {
+    id
+  }
+}
