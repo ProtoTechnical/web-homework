@@ -10,8 +10,6 @@ import { useMutation } from '@apollo/react-hooks'
 import AddTransactionMutation from '../../gql/add-transaction.gql'
 
 const addButtonCSS = css`
-  margin-top: 1rem;
-  margin-right: 7.75%;
   text-align: right;
 `
 
@@ -94,7 +92,6 @@ export function AddTransaction () {
                           <Form.Check
                             id='Debit'
                             inline
-                            // defaultValue={'off'}
                             label='Debit'
                             name='transactionType'
                             required
@@ -102,7 +99,6 @@ export function AddTransaction () {
                           />
                           <Form.Check
                             id='Credit'
-                            // defaultValue={'off'}
                             inline
                             label='Credit'
                             name='transactionType'

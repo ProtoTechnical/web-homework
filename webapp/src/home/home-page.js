@@ -12,7 +12,6 @@ const spinnerCSS = css`
 `
 const addButtonCSS = css`
   margin-top: 1rem;
-  margin-right:7.75%;
   text-align: right;
 `
 

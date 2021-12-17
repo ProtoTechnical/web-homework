@@ -83,12 +83,9 @@ export function PieChart () {
     i++
   })
 
-  console.log('categoryMap = ', categoryMap)
-  console.log('categories = ', categories)
-
   if (data?.transactions?.length) {
     return (
-      <div css={labelCSS}>        
+      <div css={labelCSS}>
         <h2 className='text-center' css={titleCSS}>Spend by category</h2>
         <div css={pieChartCSS}>
           <MinimalPieChart

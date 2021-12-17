@@ -6,9 +6,9 @@ import Button from 'react-bootstrap/Button'
 import * as Icon from 'react-bootstrap-icons'
 import { DeleteTxModal } from '../DeleteTxModal'
 import { EditTxModal } from '../EditTxModal'
+import { Number } from '../Number'
 
 const tableCSS = css`
-  width: 85%;
   margin-top: 1rem;
   margin-bottom: -1rem;
 `
@@ -53,7 +53,7 @@ export function TxTable ({ data }) {
         <td data-testid={makeDataTestId(id, 'description')}>{description}</td>
         <td data-testid={makeDataTestId(id, 'merchant')}>{merchantId}</td>
         <td data-testid={makeDataTestId(id, 'debit')}>{Card(debit)}</td>
-        <td data-testid={makeDataTestId(id, 'amount')}>${amount.toFixed(2)}</td>
+        <td data-testid={makeDataTestId(id, 'amount')}>${Number(amount.toFixed(2))}</td>
         <td data-testid={makeDataTestId(id, 'edit')}><Button onClick={onEditClick} variant='info'><Icon.PencilSquare css={editButtonCSS} /></Button></td>
         <td data-testid={makeDataTestId(id, 'delete')}><Button name={id} onClick={onDeleteClick} variant='danger'><Icon.Trash /></Button></td>
       </tr>
