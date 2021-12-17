@@ -13,6 +13,7 @@ const TransactionType = new GraphQLObjectType({
     user_id: { type: GraphQLString },
     description: { type: GraphQLString },
     merchant_id: { type: GraphQLString },
+    category: { type: GraphQLString },
     debit: { type: GraphQLBoolean },
     credit: { type: GraphQLBoolean },
     amount: { type: GraphQLFloat }
