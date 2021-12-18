@@ -1,4 +1,3 @@
-import { listeners } from 'process'
 import { useContext } from 'react'
 import { i18nContext } from '../../routes'
 
@@ -8,18 +7,18 @@ const alphaToJapaneseRatio = 3
 export function StringProc (str) {
   let i18nStr = useContext(i18nContext).i18n
 
-  if (i18nStr) { 
-      let translatedStr = ''
-      if (str) {
-        var numChars = Math.floor(str.length/alphaToJapaneseRatio)
-        if(numChars === 0) numChars++;
-        
-        for (let i = 0; i < numChars; i++) {
-            const randomIndex = Math.floor(Math.random() * japaneseChars.length)
-            translatedStr += japaneseChars.charAt(randomIndex)
-        }
+  if (i18nStr) {
+    let translatedStr = ''
+    if (str) {
+      var numChars = Math.floor(str.length / alphaToJapaneseRatio)
+      if (numChars === 0) numChars++
+
+      for (let i = 0; i < numChars; i++) {
+        const randomIndex = Math.floor(Math.random() * japaneseChars.length)
+        translatedStr += japaneseChars.charAt(randomIndex)
+      }
     }
-      return translatedStr
+    return translatedStr
   }
   return str
 }

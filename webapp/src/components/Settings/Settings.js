@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 import Form from 'react-bootstrap/Form'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { RomanNumeralContext, i18nContext } from '../../routes'
-import { StringProc } from '../StringProc/StringProc'
+import { StringProc } from '../StringProc'
 
 const indent = css`
   padding-left: 1rem;

@@ -8,6 +8,7 @@ import { DeleteTxModal } from '../DeleteTxModal'
 import { EditTxModal } from '../EditTxModal'
 import { Number } from '../Number'
 import { StringProc } from '../StringProc'
+import { AddTransaction } from '../add-transaction'
 
 const tableCSS = css`
   margin-top: 1rem;
@@ -16,6 +17,11 @@ const tableCSS = css`
 
 const editButtonCSS = css`
   color: white;
+`
+
+const addButtonCSS = css`
+  margin-top: 1rem;
+  text-align: right;
 `
 
 const makeDataTestId = (transactionId, fieldName) => `transaction-${transactionId}-${fieldName}`
@@ -55,14 +61,17 @@ export function TxTable ({ data }) {
         <td data-testid={makeDataTestId(id, 'merchant')}>{StringProc(merchantId)}</td>
         <td data-testid={makeDataTestId(id, 'debit')}>{StringProc(Card(debit))}</td>
         <td data-testid={makeDataTestId(id, 'amount')}>${Number(amount.toFixed(2))}</td>
-        <td data-testid={makeDataTestId(id, 'edit')}><Button onClick={onEditClick} variant='info'><Icon.PencilSquare css={editButtonCSS} /></Button></td>
-        <td data-testid={makeDataTestId(id, 'delete')}><Button name={id} onClick={onDeleteClick} variant='danger'><Icon.Trash /></Button></td>
+        <td data-testid={makeDataTestId(id, 'edit')}><Button data-testId='editBtn' onClick={onEditClick} variant='info'><Icon.PencilSquare css={editButtonCSS} /></Button></td>
+        <td data-testid={makeDataTestId(id, 'delete')}><Button data-testId='deleteBtn' name={id} onClick={onDeleteClick} variant='danger'><Icon.Trash /></Button></td>
       </tr>
     )
   })
 
   return (
     <>
+      <div css={addButtonCSS}>
+        <AddTransaction />
+      </div>
       <DeleteTxModal onClose={closeDeleteModal} show={deleteModalVisible} transaction={deleteTxData} />
       <EditTxModal onClose={closeEditModal} show={editModalVisible} transaction={editTxData} />
       <Table align='center' bordered css={tableCSS} hover striped>

@@ -2,17 +2,12 @@ import React from 'react'
 import { useQuery } from '@apollo/client'
 import GetTransactions from '../gql/transactions.gql'
 import { TxTable } from '../components/transactions/TxTable'
-import { AddTransaction } from '../components/add-transaction'
 import Spinner from 'react-bootstrap/Spinner'
 import { css } from '@emotion/core'
 
 const spinnerCSS = css`
   text-align: center;
   margin-top: 19rem;
-`
-const addButtonCSS = css`
-  margin-top: 1rem;
-  text-align: right;
 `
 
 export function Home () {
@@ -36,12 +31,5 @@ export function Home () {
     )
   }
 
-  return (
-    <>
-      <div css={addButtonCSS}>
-        <AddTransaction />
-      </div>
-      <TxTable data={data.transactions} />
-    </>
-  )
+  return <TxTable data={data.transactions} />
 }
