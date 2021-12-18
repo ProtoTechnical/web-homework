@@ -7,6 +7,7 @@ import * as Icon from 'react-bootstrap-icons'
 import { DeleteTxModal } from '../DeleteTxModal'
 import { EditTxModal } from '../EditTxModal'
 import { Number } from '../Number'
+import { StringProc } from '../StringProc'
 
 const tableCSS = css`
   margin-top: 1rem;
@@ -47,12 +48,12 @@ export function TxTable ({ data }) {
 
     return (
       <tr data-testid={`transaction-${id}`} key={`transaction-${id}`}>
-        <td data-testid={makeDataTestId(id, 'id')}>{id}</td>
-        <td data-testid={makeDataTestId(id, 'userId')}>{userId}</td>
-        <td data-testid={makeDataTestId(id, 'category')}>{category}</td>
-        <td data-testid={makeDataTestId(id, 'description')}>{description}</td>
-        <td data-testid={makeDataTestId(id, 'merchant')}>{merchantId}</td>
-        <td data-testid={makeDataTestId(id, 'debit')}>{Card(debit)}</td>
+        <td data-testid={makeDataTestId(id, 'id')}>{StringProc(id)}</td>
+        <td data-testid={makeDataTestId(id, 'userId')}>{StringProc(userId)}</td>
+        <td data-testid={makeDataTestId(id, 'category')}>{StringProc(category)}</td>
+        <td data-testid={makeDataTestId(id, 'description')}>{StringProc(description)}</td>
+        <td data-testid={makeDataTestId(id, 'merchant')}>{StringProc(merchantId)}</td>
+        <td data-testid={makeDataTestId(id, 'debit')}>{StringProc(Card(debit))}</td>
         <td data-testid={makeDataTestId(id, 'amount')}>${Number(amount.toFixed(2))}</td>
         <td data-testid={makeDataTestId(id, 'edit')}><Button onClick={onEditClick} variant='info'><Icon.PencilSquare css={editButtonCSS} /></Button></td>
         <td data-testid={makeDataTestId(id, 'delete')}><Button name={id} onClick={onDeleteClick} variant='danger'><Icon.Trash /></Button></td>
@@ -67,15 +68,15 @@ export function TxTable ({ data }) {
       <Table align='center' bordered css={tableCSS} hover striped>
         <tbody>
           <tr className='header'>
-            <td >ID</td>
-            <td >User ID</td>
-            <td >Category</td>
-            <td >Description</td>
-            <td >Merchant ID</td>
-            <td >Card Type</td>
-            <td >Amount</td>
-            <td >Edit</td>
-            <td >Delete</td>
+            <td >{StringProc('ID')}</td>
+            <td >{StringProc('User ID')}</td>
+            <td >{StringProc('Category')}</td>
+            <td >{StringProc('Description')}</td>
+            <td >{StringProc('Merchant ID')}</td>
+            <td >{StringProc('Card Type')}</td>
+            <td >{StringProc('Amount')}</td>
+            <td >{StringProc('Edit')}</td>
+            <td >{StringProc('Delete')}</td>
           </tr>
           {tableRows}
         </tbody>

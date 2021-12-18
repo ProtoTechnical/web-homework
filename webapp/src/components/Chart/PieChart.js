@@ -4,6 +4,8 @@ import { css } from '@emotion/core'
 import { useQuery } from '@apollo/react-hooks'
 import GetTransactions from '../../gql/transactions.gql'
 import { Spinner } from 'react-bootstrap'
+import { StringProc } from '../StringProc'
+import { Number } from '../Number'
 
 const labelCSS = css`
   text {
@@ -72,11 +74,11 @@ export function PieChart () {
   categoryMap.forEach((amount, categoryName) => {
     const percent = Math.round(amount / totalSpend * 100)
     categoryName = (categoryName === null) ? 'No category' : categoryName
-    categoryName += ': ' + percent + '%'
+    categoryName += ': ' + Number(percent) + '%'
     const colorIndex = i % listOfColors.length
 
     categories.push({
-      title: categoryName,
+      title: StringProc(categoryName),
       color: listOfColors[colorIndex],
       value: percent
     })
@@ -86,7 +88,7 @@ export function PieChart () {
   if (data?.transactions?.length) {
     return (
       <div css={labelCSS}>
-        <h2 className='text-center' css={titleCSS}>Spend by category</h2>
+        <h2 className='text-center' css={titleCSS}>{StringProc('Spend by category')}</h2>
         <div css={pieChartCSS}>
           <MinimalPieChart
             animate='true'
@@ -100,7 +102,7 @@ export function PieChart () {
   } else {
     return (
       <p>
-        Add data in order to view metrics.
+        {StringProc('Add data in order to view metrics.')}
       </p>
     )
   }

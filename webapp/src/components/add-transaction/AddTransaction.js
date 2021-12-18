@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col'
 import InputGroup from 'react-bootstrap/InputGroup'
 import { useMutation } from '@apollo/react-hooks'
 import AddTransactionMutation from '../../gql/add-transaction.gql'
+import { StringProc } from '../StringProc'
 
 const addButtonCSS = css`
   text-align: right;
@@ -51,48 +52,48 @@ export function AddTransaction () {
     <>
       <div css={addButtonCSS}>
         <Button onClick={openModal} variant='success'>
-          Add Transaction
+          {StringProc('Add Transaction')}
         </Button></div>
 
       <Modal onHide={closeModal} show={modalVisible} size='lg'>
         <Modal.Header closeButton>
-          <Modal.Title>Adding a Transaction</Modal.Title>
+          <Modal.Title>{StringProc('Adding a Transaction')}</Modal.Title>
         </Modal.Header>
         <Form onSubmit={submitForm}>
           <Modal.Body>
             <div css={formRowsCss}>
               <Row className={formRowClassName}>
                 <Form.Group as={Col} controlId='addUserID'>
-                  <Form.Label>User ID</Form.Label>
-                  <Form.Control placeholder='Enter User ID' required />
+                  <Form.Label>{StringProc('User ID')}</Form.Label>
+                  <Form.Control placeholder={StringProc('Enter User ID')} required />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId='addMerchantID'>
-                  <Form.Label>Merchant ID</Form.Label>
-                  <Form.Control placeholder='Enter Merchant ID' required />
+                  <Form.Label>{StringProc('Merchant ID')}</Form.Label>
+                  <Form.Control placeholder={StringProc('Enter Merchant ID')} required />
                 </Form.Group>
               </Row>
 
               <Form.Group className={formRowClassName} controlId='addDescription' required>
-                <Form.Label>Description</Form.Label>
-                <Form.Control placeholder='Enter Description' required />
+                <Form.Label>{StringProc('Description')}</Form.Label>
+                <Form.Control placeholder={StringProc('Enter Description')} required />
               </Form.Group>
               <Row className={formRowClassName}>
                 <div>
-                  <Form.Label>Transaction Amount</Form.Label>
+                  <Form.Label>{StringProc('Transaction Amount')}</Form.Label>
                   <InputGroup as={Col} className={formRowClassName} required>
                     <InputGroup.Text>$</InputGroup.Text>
                     <Form.Control id='addAmount' placeholder='0.00' required step={0.01} type='number' />
                   </InputGroup>
                   <Form.Group as={Col}>
-                    <Form.Label>Type of Transaction</Form.Label>
+                    <Form.Label>{StringProc('Type of Transaction')}</Form.Label>
                     <Row>
                       {['radio'].map((type) => (
                         <div key={`inline-${type}`}>
                           <Form.Check
                             id='Debit'
                             inline
-                            label='Debit'
+                            label={StringProc('Debit')}
                             name='transactionType'
                             required
                             type={type}
@@ -100,10 +101,11 @@ export function AddTransaction () {
                           <Form.Check
                             id='Credit'
                             inline
-                            label='Credit'
+                            label={StringProc('Credit')}
                             name='transactionType'
                             required
                             type={type}
+
                           />
                         </div>
                       ))}
@@ -112,17 +114,17 @@ export function AddTransaction () {
                 </div>
               </Row>
               <Form.Group className={formRowClassName} controlId='addCategory'>
-                <Form.Label>Category</Form.Label>
-                <Form.Control placeholder='Enter Category' required />
+                <Form.Label>{StringProc('Category')}</Form.Label>
+                <Form.Control placeholder={StringProc('Enter Category')} required />
               </Form.Group>
             </div>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={closeModal} variant='secondary'>
-                    Close
+              {StringProc('Close')}
             </Button>
             <Button type='submit' variant='primary'>
-                    Add
+              {StringProc('Add')}
             </Button>
           </Modal.Footer>
         </Form>
