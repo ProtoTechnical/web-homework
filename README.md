@@ -1,5 +1,5 @@
 ## TransactionBase
-Using the objectives and instructions as a guide, I have developed a transaction tracking software called TransactionBase. These are the four objectives I accomplished through development.
+This is a React application practice project. There are four objectives I accomplished through development:
 
  - Write a basic user interface that allows users to enter, edit, and remove transactions.
  - Provide a pie chart or histogram of the spend per category.
